@@ -1,0 +1,126 @@
+body {
+  font-family: serif;
+  color: #000000;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  background: #FAA916;
+}
+
+.cipher-header{
+  background: #FCD795;
+  padding: 20px;
+  margin:0;
+  text-align:center;
+}
+
+.header{
+  vertical-align:middle;
+  display:inline-block;
+  height:auto;
+}
+
+.header img{
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: center;
+  width: 100px;
+  height:100px;
+}
+
+.header #text-header{
+  vertical-align:middle;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  width: 200px;
+  height:auto;
+}
+
+#text-header h1 {
+  line-height: normal;
+  margin:0;
+  text-transform: uppercase;
+  color: #A0522D;
+  -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000000;
+}
+
+#text-header h2,h3 {
+  line-height: normal;
+  margin:0;
+}
+
+#text-header input {
+  line-height: normal;
+  margin:20px 0 0 0;
+  padding: 8px 2px;
+  box-sizing:content;
+  background-color: #FCD795;
+  border: 2px solid #FAA916;
+  border-width:thin;
+  border-radius: 4px;
+}
+
+.cipher-content{
+  padding:30px;
+  margin:25px;
+  text-align:center;
+}
+
+.box{
+  margin:20px 30px;
+  vertical-align:top;
+  display:inline-block;
+  height:auto;
+}
+
+#crypto-box textarea{
+  resize: none;
+  margin:0;
+  float:left;
+  border:solid 20px #9C7DA5;
+  border-radius: 10px;
+  background: #FAA916;
+  -webkit-scrollbar-track-width: 10px;
+    -webkit-scrollbar-track-color: pink;
+}
+
+#answer-box textarea{
+  resize: none;
+  margin:0;
+  float:right;
+  border:solid 20px #9C7DA5;/*#876191;*/
+  border-radius: 10px;
+  background: #FAA916;
+}
+
+.box #crypto-box{
+  float:left;
+  text-align:center;
+  width: 100px;
+  height:90px;
+  padding:20px;
+}
+
+#crypto-box button{
+  background-color: #FCD795;
+  border: solid 2px #FCD795;
+  border-radius: 4px;
+  color: black;
+  width:100px;
+  height:25px;
+  text-align: center;
+  font-size: 16px;
+  margin: 30px 15px 15px 10px;
+  transition-duration: 0.4s;
+}
+
+
+.box #answer-box{
+  float:right;
+  text-align:center;
+  width:100px;
+  height:90px;
+  padding:20px;
+}

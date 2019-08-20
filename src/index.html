@@ -2,12 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Caesar Cipher</title>
+    <title>Caesar Cipher: nestletoulouse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root">
-      <h1>Hello world!</h1>
+    <div class="cipher-header">
+        <div class="header"><img src="cookie-cipher-sml.png"></div>
+        <div class="header" id="text-header">
+          <h1>nestletoulouse</h1><br>
+          <h2>Crie uma criptografia para sua receita secreta de família</h2><br>
+          <h3>Insira aqui o deslocamento criptográfico:</h3>
+          <input type="number" name="shift-number" min="1" max="26" placeholder="Escolha um número">
+        </div>
+        <div class="header"><img src="cookie-cipher-sml.png"></div>
+    </div>
+
+    <div class="cipher-content">
+        <div class="box" id="crypto-box">
+          <textarea id="input-box" cols="50" rows="15" placeholder="Insira aqui a sua receita!"></textarea><br>
+          <button id="encode-btn" type="button" name="Encode" onclick="window.cipher.encode()">Cifrar</button>
+          <button id="decode-btn" type="button" name="Decode" onclick="window.cipher.decode()">Decifrar</button>
+        </div>
+        <div class="box"id="answer-box">
+          <textarea id="output-box" cols="50" rows="15" placeholder="Resultados..."></textarea>
+        </div>
     </div>
     <script src="cipher.js"></script>
     <script src="index.js"></script>
