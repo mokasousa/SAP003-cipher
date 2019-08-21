@@ -7,21 +7,25 @@
   </head>
   <body>
     <div class="cipher-header">
-        <div class="header"><img src="cookie-cipher-sml.png"></div>
+        <div class="header">
+          <img src="cookie-cipher-sml.png">
+        </div>
         <div class="header" id="text-header">
           <h1>nestletoulouse</h1><br>
           <h2>Crie uma criptografia para sua receita secreta de família</h2><br>
           <h3>Insira aqui o deslocamento criptográfico:</h3>
-          <input id="offset" type="number" name="offset-number" min="1" max="26" placeholder="Escolha um número">
+          <input id="offset" type="number" name="offset-number" min="-26" max="26" placeholder="Escolha um número">
         </div>
-        <div class="header"><img src="cookie-cipher-sml.png"></div>
+        <div class="header">
+          <img src="cookie-cipher-sml.png">
+        </div>
     </div>
 
     <div class="cipher-content">
         <div class="box" id="crypto-box">
           <textarea id="input-box" cols="50" rows="15" placeholder="Insira aqui a sua receita!"></textarea><br>
-          <button id="encode-btn" type="button" name="Encode" onclick="clickCifrar()">Cifrar</button>
-          <button id="decode-btn" type="button" name="Decode" onclick="clickDecifrar()">Decifrar</button>
+          <button id="encode-btn" type="button" name="Encode">Cifrar</button>
+          <button id="decode-btn" type="button" name="Decode">Decifrar</button>
         </div>
         <div class="box"id="answer-box">
           <textarea id="output-box" cols="50" rows="15" placeholder="Resultados..."></textarea>
