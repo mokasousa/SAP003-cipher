@@ -2,8 +2,10 @@
 //click nos botões Cifrar e Decifrar
 
 /*
-//1. Apagar textarea id#answer-box e o offset
-document.getElementById('offset').reset();
+//Deixar campos vazios ao abrir/renovar a página
+document.getElementById('offset').value = '';
+document.getElementById('input-box').value= '';
+document.getElementById('output-box').value= '';
 */
 
 let offset, stringInput;
@@ -14,12 +16,14 @@ stringInput = document.getElementById('input-box').value;
 //define como parâmetros os valores em offset e input-box e chama a função Encode
 
 document.getElementById('encode-btn').addEventListener('click', function clickCifrar() {
-  window.cipher.encode(offset, stringInput);
+  const resultEncode = "Pronto, guarde com carinho! \n\n";
+  document.getElementById('output-box').innerHTML = resultEncode + window.cipher.encode(offset, stringInput);
 });
 
 //2.Chamar a função clickCifrar ao evento de Click no botão Decifrar ->
 //define como parâmetros os valores em offset e input-box e chama a função Decode
 
 document.getElementById('decode-btn').addEventListener('click', function clickDecifrar (){
-  window.cipher.decode(offset, stringInput);
+  const resultDecode = "Pronto, guarde com carinho! \n\n";
+  document.getElementById('output-box').innerHTML = resultDecode + window.cipher.decode(offset, stringInput);
 });

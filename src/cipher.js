@@ -36,9 +36,7 @@ function encode() {
             stringEncode += stringInput.charAt(i);
         }
     }
-
-    //4. Printar mensagem padrão em negrito e stringEncode em textarea id#answer-box
-    document.getElementById('output-box').innerHTML = "Pronto, guarde com carinho! \n" + stringEncode;
+    return stringEncode
   }
 }
 
@@ -76,7 +74,7 @@ function decode(){
     }
 
     //4. Printar mensagem padrão em negrito e stringDecode em textarea id#answer-box
-
-    document.getElementById('output-box').innerHTML = "Desfrute e surpreenda a todos! \n" + stringDecode;
+    return stringDecode
+    //document.getElementById('output-box').innerHTML = "Desfrute e surpreenda a todos! \n\n" + stringDecode;
   }
 }
