@@ -1,80 +1,130 @@
-//Javascript para as funções de codificar e decofificar o input em textarea id#input-box
-
-//1. Apagar textarea id#answer-box e o offset
+//FUNÇÕES PARA CIFRAR E DECIFRAR O INPUT DO USUÁRIO
 
 window.cipher = {
   encode: encode,
   decode: decode
 };
 
-function encode() {
+function encode(offset, stringInput) {
 
-  //2. Captar os valores Input:
-  offset = Math.abs(Number(document.getElementById('offset').value));
-  stringInput = document.getElementById('input-box').value;
-  console.log(offset, stringInput)
+  let position, stringEncode, shiftedChar, eachCharCode;
 
-  if (offset !== '' && offset !== 0 && stringInput !== '') {
+  //Checar se o usuário escreveu no campo certo e escolheu um número válido:
+  if (offset !== "" && offset !== 0 && stringInput !== "") {
 
-    let stringEncode = '';
-
+    //Definir o tamanho da string e declarar uma nova string inicialmente vazia:
     position = stringInput.length;
 
-    for (i=0; i<position; i++) {
+    stringEncode = "";
 
-        let shiftedChar, eachCharCode;
+    //Se o deslocamento for um número positivo:
+    if (offset > 0) {
+
+      //Loop para trocar as letras da string:
+      for (let i = 0; i < position; i++) {
+
+        //Associar o número ASC para cada letra da string:
+        eachCharCode = stringInput.charCodeAt(i);
+
+        //Condição trocar letras Maiúsculas:
+        if (65 <= eachCharCode && eachCharCode <= 90) {
+
+          //Trocar o número ASC de acordo com offset e associá-lo a letra correspondente:
+          shiftedChar = String.fromCharCode(((eachCharCode - 65 + offset) % 26) + 65);
+
+          //Adicionar a letra à nova string a ser formada:
+          stringEncode += shiftedChar;
+
+        //Condição trocar letras minúsculas:
+        } else if (97 <= eachCharCode && eachCharCode <= 122) {
+          shiftedChar = String.fromCharCode(((eachCharCode - 97 + offset) % 26) + 97);
+          stringEncode += shiftedChar;
+
+        //Condição para não alterar outros caracteres da string:
+        } else {
+          stringEncode += stringInput.charAt(i);
+        }
+      }
+
+    //Caso o usúario coloque um número negativo (Cifrar passa a Decifrar):
+    } else {
+
+      offset = Math.abs(offset);
+
+      for (let i = 0; i < position; i++) {
 
         eachCharCode = stringInput.charCodeAt(i);
 
         if (65 <= eachCharCode && eachCharCode <= 90) {
-            shiftedChar = String.fromCharCode(((eachCharCode - 65 + offset) % 26) + 65); //stringInput.charCodeAt(i)); -> retorna o códigoASC[i] para cada letra
-            stringEncode += shiftedChar;
+          shiftedChar = String.fromCharCode(((eachCharCode + 65 - offset) % 26) + 65);
+          stringEncode += shiftedChar;
+
         } else if (97 <= eachCharCode && eachCharCode <= 122) {
-            shiftedChar = String.fromCharCode(((eachCharCode - 97 + offset) % 26) + 97); //stringInput.charCodeAt(i)); -> retorna o códigoASC[i] para cada letra
-            stringEncode += shiftedChar;
+          shiftedChar = String.fromCharCode((122 - (122 - eachCharCode + offset) % 26));
+          stringEncode += shiftedChar;
+
         } else {
-            stringEncode += stringInput.charAt(i);
+          stringEncode += stringInput.charAt(i);
         }
+      }
     }
-    return stringEncode
+    return stringEncode;
   }
 }
+//----------------------------------*****-------------------------------------//
 
-//------------------------------------------------------------------------------
-function decode(){
+function decode(offset, stringInput) {
 
-  //2. Captar os valores:
-  //let offset, stringInput;
-  offset = Math.abs(Number(document.getElementById('offset').value));
-  stringInput = document.getElementById('input-box').value;
-  console.log(offset, stringInput)
+  //Checar se o usuário escreveu no campo certo e escolheu um número:
+  if (offset !== "" && offset !== 0 && stringInput !== "") {
 
-  if (offset !== '' && offset !== 0 && stringInput !== '') {
-
-    //3. Manipular a string/trocar as letras e inserir numa nova string
-    let stringDecode = '';
+    let position, stringDecode, shiftedChar, eachCharCode;
 
     position = stringInput.length;
 
-    for (i=0; i<position; i++) {
+    stringDecode = "";
 
-      let shiftedChar, eachCharCode;
+    if (offset > 0) {
 
-      eachCharCode = stringInput.charCodeAt(i);
+      for (let i = 0; i < position; i++) {
 
-      if ( 65 <= eachCharCode && eachCharCode <= 90) {
+        eachCharCode = stringInput.charCodeAt(i);
+
+        if (65 <= eachCharCode && eachCharCode <= 90) {
           shiftedChar = String.fromCharCode(((eachCharCode + 65 - offset) % 26) + 65);
           stringDecode += shiftedChar;
-      } else if (97 <= eachCharCode && eachCharCode <= 122) {
+
+        } else if (97 <= eachCharCode && eachCharCode <= 122) {
           shiftedChar = String.fromCharCode((122 - (122 - eachCharCode + offset) % 26));
           stringDecode += shiftedChar;
-      } else {
+
+        } else {
           stringDecode += stringInput.charAt(i);
+        }
+      }
+
+    //Caso o usúario coloque um número negativo (Decifrar passa a Cifrar):
+    } else {
+
+      offset = Math.abs(offset);
+
+      for (let i = 0; i < position; i++) {
+
+        eachCharCode = stringInput.charCodeAt(i);
+
+        if (65 <= eachCharCode && eachCharCode <= 90) {
+          shiftedChar = String.fromCharCode(((eachCharCode - 65 + offset) % 26) + 65);
+          stringDecode += shiftedChar;
+
+        } else if (97 <= eachCharCode && eachCharCode <= 122) {
+          shiftedChar = String.fromCharCode(((eachCharCode - 97 + offset) % 26) + 97);
+          stringDecode += shiftedChar;
+
+        } else {
+          stringDecode += stringInput.charAt(i);
+        }
       }
     }
-
-    //4. Printar mensagem padrão em negrito e stringDecode em textarea id#answer-box
-    return stringDecode
-    //document.getElementById('output-box').innerHTML = "Desfrute e surpreenda a todos! \n\n" + stringDecode;
+    return stringDecode;
   }
 }
