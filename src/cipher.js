@@ -7,6 +7,63 @@ window.cipher = {
 
 function encode(offset, stringInput) {
 
+  //Checar se o usuário escreveu no campo certo e escolheu um número válido:
+  if (offset !== "" && stringInput !== "") {
+
+    let shiftedString, charCode, shiftedChar;
+
+    //transformar a string em um array e mapear cada item executando uma função:
+    shiftedString = Array.from(stringInput).map(function(charenc) {
+
+      //Associar o número ASC para cada letra do array:
+      charCode = charenc.charCodeAt();
+
+      //Condição trocar letras Maiúsculas:
+      if (65 <= charCode && charCode <= 90) {
+
+        //Trocar o número ASC de acordo com offset e associá-lo a letra correspondente:
+        shiftedChar = String.fromCharCode(((charCode - 65 + offset) % 26) + 65);
+
+      //Condição trocar letras minúsculas:
+      } else if (97 <= charCode && charCode <= 122) {
+        shiftedChar = String.fromCharCode(((charCode - 97 + offset) % 26) + 97);
+
+      //Condição para não alterar outros caracteres da string:
+      } else {
+        shiftedChar = charenc;
+      }
+
+      //retornar as letras alteradas ao array:
+      return shiftedChar;
+    });
+
+    //retornar a string do array formado pelo map:
+    return shiftedString.join("");
+  }
+}
+
+function decode(offset, stringInput) {
+  if (offset !== "" & stringInput !== "") {
+    let shiftedString, charCode, shiftedChar;
+    shiftedString = Array.from(stringInput).map(function(chardec) {
+      charCode = chardec.charCodeAt();
+      if (65 <= charCode && charCode <= 90) {
+        shiftedChar = String.fromCharCode(((charCode + 65 - offset) % 26) + 65);
+      } else if (97 <= charCode && charCode <= 122) {
+        shiftedChar = String.fromCharCode((122 - (122 - charCode + offset) % 26));
+      } else {
+        shiftedChar = chardec;
+      }
+      return shiftedChar;
+    });
+    return shiftedString.join("");
+  }
+}
+
+//OUTRA FORMA DE RESOLVER: FOR LOOP...
+/*
+function encode(offset, stringInput) {
+
   let position, stringEncode, shiftedChar, eachCharCode;
 
   //Checar se o usuário escreveu no campo certo e escolheu um número válido:
@@ -128,3 +185,4 @@ function decode(offset, stringInput) {
     return stringDecode;
   }
 }
+*/
