@@ -15,7 +15,7 @@
           <h1>nestletoulouse</h1><br>
           <h2>Crie uma criptografia para sua receita secreta!</h2><br>
           <h3>Insira aqui o deslocamento criptográfico:</h3>
-          <input id="offset" type="number" name="offset-number" min="-255" max="255" placeholder="Escolha um número">
+          <input id="offset" type="number" name="offset-number" min="-255" max="255" placeholder="Escolha um número" required>
         </div>
         <div class="header">
           <img src="cookie-cipher-sml.png">
@@ -24,12 +24,12 @@
 
     <div class="cipher-content">
         <div class="box" id="crypto-box">
-          <textarea id="input-box" cols="50" rows="15" placeholder="Insira aqui a sua receita!"></textarea><br>
+          <textarea id="input-box" cols="50" rows="15" placeholder="Insira aqui a sua receita!" required></textarea><br>
           <button id="encode-btn" type="button" name="Encode">Cifrar</button>
           <button id="decode-btn" type="button" name="Decode">Decifrar</button>
         </div>
         <div class="box"id="answer-box">
-          <textarea id="output-box" cols="50" rows="15" placeholder="Resultados..."></textarea>
+          <textarea id="output-box" cols="50" rows="15" placeholder="Resultado..."></textarea>
         </div>
     </div>
     <script src="cipher.js"></script>
