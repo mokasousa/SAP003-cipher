@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Noto Serif', serif;
   color: #000000;
   max-width: 100%;
   max-height: 100%;
@@ -54,12 +54,17 @@ body {
 #text-header input {
   line-height: normal;
   margin:20px 0 0 0;
-  padding: 8px 2px;
-  box-sizing:content;
+  padding: 10px 1px;
+  box-sizing:content-box;
   background-color: #FCD795;
   border: 2px solid #FAA916;
   border-width:thin;
   border-radius: 4px;
+}
+
+input::placeholder{
+  font-family: 'Noto Serif', serif;
+  color: #000000;
 }
 
 .cipher-content{
@@ -82,17 +87,20 @@ body {
   border:solid 20px #9C7DA5;
   border-radius: 10px;
   background: #FAA916;
-  -webkit-scrollbar-track-width: 10px;
-    -webkit-scrollbar-track-color: pink;
 }
 
 #answer-box textarea{
   resize: none;
   margin:0;
   float:right;
-  border:solid 20px #9C7DA5;/*#876191;*/
+  border:solid 20px #9C7DA5;
   border-radius: 10px;
   background: #FAA916;
+}
+
+textarea::placeholder{
+  font-family: 'Noto Serif', serif;
+  color: #000000;
 }
 
 .box #crypto-box{
@@ -114,8 +122,14 @@ body {
   font-size: 16px;
   margin: 30px 15px 15px 10px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 
+button:active {
+  background-color: #9C7DA5;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 .box #answer-box{
   float:right;

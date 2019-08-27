@@ -16,7 +16,7 @@ document.getElementById("encode-btn").addEventListener("click", function clickCi
   if (offset && stringInput) {
 
     //chamar a função encode e printar na caixa de resultado:
-    const resultEncode = "Pronto, guarde com carinho! \n\n";
+    const resultEncode = "Pronto, guarde com carinho!\n(Guarde a chave de deslocamento também)\n\n";
     document.getElementById("output-box").innerHTML = resultEncode + window.cipher.encode(offset, stringInput);
   }
 });
